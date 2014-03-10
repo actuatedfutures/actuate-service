@@ -4,47 +4,55 @@ if (file_exists($pagefile)) :
     include($pagefile);
 else:
 ?>
-<h1 class="page-title"><span class="icon icon-warmth icon--heading"></span>Warmth</h1>
+<?php /* <h1 class="page-title"><span class="icon icon-warmth icon--heading"></span>Warmth</h1> */ ?>
 
-<div class="grid">
-<div class="grid__item pad-one-half">
+<div class="grid--full">
+<div class="grid__item">
     
-    <div class="module coloured colours-maroon">
-        <h2 class="heading">Temperature</h2>
-        <div class="separate grid--full">
-            <div class="one-of grid__item lap-one-third">
-                <p class="label brand-face">Inside</p>
-                <p class="figure" id="temp-inside">-&deg;C</p>
-            </div><!-- 
-         --><div class="grid__item lap-one-third">
-                <p class="label brand-face">Outside</p>
-                <p class="figure" id="temp-outside">-&deg;C</p>
-            </div><!-- 
-         --><div class="grid__item lap-one-third">
-                <p class="label brand-face">Target</p>
-                <p class="figure" id="temp-target">-&deg;C</p>
-            </div>
-        </div><!-- .temperatures -->
+    <div class="module">
+        <header class="module__header"><h2 class="heading -maroon">Temperature</h2></header>
+        <div class="module__main">
+            <div class="separate -three">
+                <div class="pair">
+                    <p class="figure" id="temp-inside">-&deg;C</p>
+                    <p class="label brand-face">Inside</p>                    
+                </div><!-- 
+             --><div class="pair">
+                    <p class="figure" id="temp-outside">-&deg;C</p>
+                    <p class="label brand-face">Outside</p>                    
+                </div><!-- 
+             --><div class="pair">
+                    <p class="figure" id="temp-target">-&deg;C</p>
+                    <p class="label brand-face">Target</p>                    
+                </div>
+            </div><!-- .temperatures -->
+        </div>
+        <div class="module__main extra">
+            <p class="m--half">How does your home feel right now?</p>
+            <ul class="nav  options linkgroup">
+                <li><a class="warm" href="/warmth/toohot/">Too warm</a></li>
+                <li><a class="right" href="/warmth/justright/?temp=21">Just right</a></li>
+                <li><a class="cold" href="/warmth/toocold/">Too cold</a></li>
+            </ul>
+        </div><!-- .question -->
+        <footer class="module__footer"></footer>
     </div><!-- .module -->
 
-</div><div class="grid__item pad-one-half">
+</div><div class="grid__item">
 
-    <div class="module coloured colours-mustard">        
-        <p>You house is currently:</p>
-        <p class="hi" id="boost"><span class="slabtext">–</span></p>
-        <a href="/help/warmth/status" class="button">What does this mean<span class="icon-arrow-right"></span></a>
+    <div class="module">        
+        <header class="module__header -maroon"><h2 class="heading">Heating status</h2></header>
+        <div class="module__main">
+            <p>You house is currently <span class="hi" id="boost"></span> which means that it will naturally maintain it's current heat without you needing to do anything.</p>
+        </div><!-- .module_main -->
+        <footer class="module__footer"><a href="/help/warmth/status" class="button">Find out more<span class="icon-arrow-right"></span></a></footer>
     </div><!-- .module -->    
 
 </div><!-- .grid__item -->
 </div><!-- .grid -->
 
 <div class="module coloured colours-mint">        
-    <p>How does your home feel right now?</p>
-    <div class="linkgroup goldilocks">
-        <a class="warm" href="/warmth/toohot/">Too warm</a>
-        <a class="right" href="/warmth/justright/?temp=21">Just right</a>
-        <a class="cold" href="/warmth/toocold/">Too cold</a>
-    </div>
+    
 </div><!-- .module -->
 
 <script type="text/javascript">
