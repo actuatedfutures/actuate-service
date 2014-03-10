@@ -1,0 +1,132 @@
+<nav class="menu_controls offscreen -right">
+
+    <h3 class="page-title">Controls</h3> 
+
+    <div class="module coloured colours-maroon nonessential">
+        <!-- <h2 class="heading">Electricity<span class="icon-bulb icon--right"></span></h2> -->
+        <div class="status__box">
+            <dl class="split">
+                <dt class="split__title">Non-essential circuit</dt>
+                <dd class="status"><span class="hi">on</span></dd>
+            </dl>
+        </div><!-- .status__box -->
+        <a href="/control/electricity" class="button"><span class="ho">Turn off</span><span class="icon-power"></span></a>
+    </div><!-- .module --><!--
+
+    --><div class="module coloured colours-sea waterheating">
+        <!-- <h2 class="heading">Water<span class="icon-water icon--right"></span></h2> -->
+        <div class="status__box">
+            <dl class="split">
+                <dt class="split__title">Water Heating</dt>
+                <dd class="status"><span class="hi">on</span></dd>
+            </dl>
+        </div><!-- .status__box -->
+        <a href="/control/water" class="button"><span class="ho">Turn off</span><span class="icon-power"></span></a>
+    </div><!-- .module --><!-- 
+
+    --><div class="module coloured colours-blue housealarm">
+        <!-- <h2 class="heading">Security<span class="icon-eye icon--right"></span></h2> -->
+        <div class="status__box">
+            <dl class="split">
+                <dt class="split__title">House Alarm</dt>
+                <dd class="status"><span class="hi">armed</span></dd>
+            </dl>
+        </div><!-- .status__box -->
+        <a href="/control/alarm" class="button"><span class="ho">Unable to disarm</span><span class="icon-close"></span></a>
+    </div><!-- .module --><!--
+
+    --><div class="module coloured colours-purple targettemp">
+        <!-- <h2 class="heading">Warmth<span class="icon-warmth icon--right"></span></h2> -->
+        <div class="status__box">
+            <dl class="split">
+                <dt class="split__title">Target temp.</dt>
+                <dd class="status"><span class="hi">21&deg;C</span></dd>
+            </dl>
+        </div><!-- .status__box -->
+        <a href="/control/target" class="button">Change target<span class="icon-arrow-right"></span></a>
+    </div><!-- .module --><!--
+
+     --><div class="module coloured colours-mustard heatingboost">
+        <!-- <h2 class="heading">Warmth<span class="icon-warmth icon--right"></span></h2> -->
+        <div class="status__box">
+            <dl class="split">
+                <dt class="split__title">Heating Boost</dt>
+                <dd class="status"><span class="hi">ON</span></dd>
+            </dl>
+        </div><!-- .status__box -->
+        <a href="/control/heating" class="button"><span class="ho">Turn OFF</span><span class="icon-arrow-right"></span></a>
+    </div><!-- .module -->
+</nav>
+
+<script type="text/javascript">
+$(function()
+{
+    var menuButton = $('#show-controls-btn span');
+
+    // $('html').addClass('js-ready');
+
+    $('#show-controls-btn').on('click',function(e)
+    {
+        e.preventDefault();      
+
+        updateControls(function()
+        {        
+            $('html').toggleClass('show-right');
+            $(menuButton).toggleClass('icon-close');
+            $(menuButton).toggleClass('icon-power');
+            $(this).blur();    
+        });
+    });
+
+    var updateControls = function(callback)
+    {
+        var api     = '/api/control/all';
+        
+        var non  = $('.nonessential .hi');
+        var wah  = $('.waterheating .hi');
+        var hal  = $('.housealarm .hi');
+        var tat  = $('.targettemp .hi');
+        var heb  = $('.heatingboost .hi');
+
+        var bnon = $('.nonessential .button .ho');
+        var bwah = $('.waterheating .button .ho');
+        var bhal = $('.housealarm .button .ho');
+        // var bt   = $('.targettemp .button'); // we don't need to the the target temp
+        var bheb = $('.heatingboost .button .ho');       
+
+        $.getJSON(api,function(data,status,x)
+        {                
+            non.text(data.nonessential.status); 
+            wah.text(data.waterheating.status); 
+            hal.text(convertAlarm(data.housealarm.status)); 
+            tat.html(data.targettemp.target+'&deg;'); 
+            heb.text(data.heatingboost.status); 
+
+            bnon.html(swapStatus(data.nonessential.status)); 
+            bwah.html(swapStatus(data.waterheating.status)); 
+            bhal.html(swapAlarm(data.housealarm.status)); 
+            bheb.html(swapStatus(data.heatingboost.status)); 
+            // btat.text(data.targettemp.target+'&deg;');  // we don't need to the the target temp
+            callback();
+        });
+
+        var convertAlarm = function(status)
+        {
+            if (status == 'on') return 'armed';
+            if (status == 'off') return 'disarmed';
+        }
+
+        var swapStatus = function(status)
+        {
+            if (status == 'on') return 'turn off';
+            if (status == 'off') return 'turn on';
+        }
+
+        var swapAlarm = function(status)
+        {
+            if (status == 'on') return 'unable to disarm';
+            if (status == 'off') return 'arm';
+        }
+    }
+});
+</script>

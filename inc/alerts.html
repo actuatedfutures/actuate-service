@@ -1,0 +1,32 @@
+<div class="alert module">
+    <h4 class="heading">Error Message</h4>
+    <p class="content">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+    <p><a href="#" class="btn btn-close">close <span>&#215;</span></a></p>
+</div>
+
+<div class="module">
+    <p><a href="#" id="show">show</a></p>
+</div>
+
+<script type="text/javascript">
+    
+    $(function()
+    {
+        $('.alert').on('click',function(){
+            $(this).slideUp();  
+            $('#show').show();  
+        }); 
+
+        $('#show').on('click',function(){
+            $('.alert').slideDown();  
+            $('#show').hide();  
+        }); 
+
+        $('#show').hide();  
+    });
+
+</script>
+
+<style type="text/css">
+
+</style>

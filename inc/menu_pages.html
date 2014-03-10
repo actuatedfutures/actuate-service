@@ -1,0 +1,48 @@
+<nav class="menu_pages offscreen -left" role="navigation">
+    
+    <h3 class="page-title">Menu</h3> 
+    
+    <ul class="cf -list">
+        <li>
+            <a class="" href="/"><span class="icon-home"></span>&nbsp;Home</a>
+        </li>
+        <li>
+            <a class="" href="/billing/"><span class="icon-bills"></span>&nbsp;Bills</a>
+        </li>
+        <li>
+            <a class="" href="/electricity/"><span class="icon-bulb"></span>&nbsp;Electricity</a>
+        </li>
+        <li>
+            <a class="" href="/water/"><span class="icon-water"></span>&nbsp;Water</a>
+        </li>
+        <li>
+            <a class="" href="/warmth/"><span class="icon-warmth"></span>&nbsp;Warmth</a>
+        </li>
+        <li>
+            <a class="" href="/security/"><span class="icon-eye"></span>&nbsp;Security</a>
+        </li>
+        <li>
+            <a class="" href="/local/"><span class="icon-location"></span>&nbsp;Local</a>
+        </li>
+        <li>
+            <a class="" href="/help/"><span class="icon-smiley"></span>&nbsp;Help</a>
+        </li>            
+    </ul>
+</nav>
+<script type="text/javascript">
+$(function()
+{
+    var menuButton = $('#show-pages-btn span');
+
+    // $('html').addClass('js-ready');
+
+    $('#show-pages-btn').on('click',function(e)
+    {
+        e.preventDefault();
+        $('html').toggleClass('show-left');
+        $(menuButton).toggleClass('icon-close');
+        $(menuButton).toggleClass('icon-menu');
+        $(this).blur();
+    });
+});
+</script>

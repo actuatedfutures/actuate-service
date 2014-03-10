@@ -1,0 +1,93 @@
+<div class="module coloured colours-beige dyk">
+    <h2 class="heading">Did You Know?<span class="icon-smiley icon--right"></span></h2>
+    <div class="content">
+        <p class="loading">Loading...</p>
+    </div>
+</div>
+<script type="text/javascript">
+
+    (function(){
+
+        var dyk = $('.dyk');
+        dyk.hide();
+        // setTimeout(function()
+        // {        
+        //     $.get('/api/dyk/<?php echo($params[0]); ?>/', {}, function(data, textStatus, jqXHR)
+        //     {  
+        //         if (data == 'negative') dyk.hide();
+        //         else dyk.find('.content').html(data);    
+        //     },'html');
+        // },1000);      
+
+    })();        
+
+    $(document).on('ready',function()
+    {
+        // var h = $(this).height();
+        // var i = $('.underfooter').height();
+        // var s = $(window).height();
+
+        // var d = h - i - s;
+        // log('d',d);          
+
+        // var timeout, animating = false;
+        // $(window).on('scroll',function(e)
+        // {
+        //     e.preventDefault();
+
+        //     if (animating) return;
+        //     clearTimeout(timeout);
+        //     timeout = setTimeout(function()
+        //     {                
+        //         if ($(window).scrollTop() > d) 
+        //         {
+        //             var animating = true;
+        //             $('document, body').animate({ scrollTop: d }, {easing:'easeOutBounce', complete:function()
+        //             {
+        //                 animating = false;
+        //             }});
+        //         }
+                
+        //     },500);
+        // });
+    });   
+
+</script>
+
+<div class="underfooter">
+    <div class="af-logo">
+        <div class="container" style="padding-top:85%"><?php include('img/af-logo.svg'); ?></div>
+    </div>
+    <p><span class="name">Actuate</span><br />by <a href="#">Actuated Futures</a><br />in partnership with <a href="#">CITU</a></p>
+</div>
+
+</div><!-- #outer-wrap -->
+</div><!-- #inner-wrap -->
+
+<?php /*
+<script src="js/main.js"></script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>    
+*/ ?>    
+
+<a class="test" id="responsivetest" href="javascript:testClick();">responsive test</a>
+
+<script type="text/javascript">
+// hide the responsive link if you're already in an iframe.
+if (self.location !== top.location) {document.getElementById('responsivetest').style.display = 'none';}
+function testClick()
+{
+    var url='http://morganesque.github.io/resphrame/?'+'url='+window.location.href;
+    window.location.href=url;
+}
+</script>
+<?php if ($_SITE['type'] == 'dev') echo '<script src="http://192.168.1.79:35729/livereload.js"></script>'; ?>
+</body>
+</html>

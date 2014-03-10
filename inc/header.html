@@ -1,0 +1,43 @@
+<header class="header">
+    <?php /* <h1 class="caps text--center alpha brand-face"><a href="/">Actuate</a></h1> */ ?>
+
+    <a class="user-id text--center" href="/api/logout/"> 
+        <p><?php 
+                if (isset($_SESSION['user'])) 
+                {
+                    $add = explode(',',$_SESSION['user']['address']);
+                    echo $add[0];
+                    echo '<br />';
+                    echo '<span>'.$add[1].'</span>';
+                }
+        ?></p>
+    </a>
+    
+    <a class="icon icon__control" id="show-controls-btn" href="#nav"><span class="icon-power"></span></a>
+    
+    <a class="icon icon__menu" id="show-pages-btn" href="#menu"><span class="icon-menu"></span></a>
+    
+</header>
+
+<script type="text/javascript">
+    
+    $(document).on('ready',function()
+    {
+        $('.user-id').on('click',function(e)
+        {
+            e.preventDefault();                    
+            var res = confirm('Are you should you want to log out?');
+            if (res)
+            {
+                var login = $.post("/api/user/logout", null, function(data)
+                {
+                    if (data == 'success') window.location.href = '/';
+                    else { 
+                        // console.log(data);
+                        alert('problem!');
+                    }
+                });
+            }
+        });
+    });
+</script>

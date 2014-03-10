@@ -1,0 +1,77 @@
+<h1 class="page-title">Colours</h1>
+<div class="module demo-colours">
+    <div class="demo-text demo-white ">
+        <ul class="matrix three-cols">
+            <li>citu-yellow</li><li>lk-turq</li><li>lk-red</li><li>lk-beige</li><li>lk-blue</li><li>lk-grey</li><li>lk-maroon</li><li>lk-purple</li><li>lk-mint</li><li>lk-cream</li><li>lk-sea</li><li>lk-mustard</li><li>citu-grey</li><li>lk-green</li><li>citu-blue</li><li>lk-white</li>
+        </ul>
+    </div>
+    <div class="demo-bg demo-white">
+        <ul class="matrix three-cols">
+            <li>citu-yellow</li><li>lk-turq</li><li>lk-red</li><li>lk-beige</li><li>lk-blue</li><li>lk-grey</li><li>lk-maroon</li><li>lk-purple</li><li>lk-mint</li><li>lk-cream</li><li>lk-sea</li><li>lk-mustard</li><li>citu-grey</li><li>lk-green</li><li>citu-blue</li><li>lk-white</li>
+        </ul>
+    </div>
+    <div class="island demo-white demo-schemes">
+        <div class="coloured colours-body">default body colours</div>
+        <div class="coloured colours-head">header colour scheme</div>
+
+        <div class="coloured colours-turq">brand colour scheme</div>
+        <div class="coloured colours-maroon">brand colour scheme</div>
+        <div class="coloured colours-sea">brand colour scheme</div>
+        <div class="coloured colours-grey">brand colour scheme</div>
+
+        <div class="coloured colours-mint">other colour scheme</div>
+        <div class="coloured colours-mustard">other colour scheme</div>
+
+        <div class="coloured colours-foot">footer colour scheme</div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function()
+    {
+        $('.demo-text li').each(function()
+        {
+            var t = $(this).text();
+            $(this).addClass(t);
+        });
+
+        $('.demo-bg li').each(function()
+        {
+            var t = $(this).text();
+            $(this).addClass(t+'-bg ');
+        });
+    });
+</script>
+<style type="text/css">
+    .demo-colours {
+        vertical-align:top;
+    }
+    .demo-white {
+        background-color:white;
+        padding:1.5em;
+        display:inline-block;
+        width:100%;
+        min-width:350px;
+        max-width:500px;
+        text-align:center;
+
+        li {
+            overflow:hidden;
+            white-space: nowrap;
+        }
+    }
+
+    .demo-bg {color:white;}
+
+    .demo-schemes div {
+        display:inline-block;
+        width:120px;
+        overflow:hidden;
+        margin:0 0.75em 0.75em 0;
+        text-align:center;
+        text-transform: uppercase;
+        white-space: normal;
+        height:100px;
+        padding:1em;
+        line-height:1.3em;
+    }
+</style>

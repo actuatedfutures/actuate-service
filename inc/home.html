@@ -1,0 +1,49 @@
+<div class="module">
+    <p>A component library for the Actuate project.</p>
+    <h3 class="">Elements</h3>
+    <ul class="block-list">        
+        <li><a href="/?url=typography">Typography</a> &mdash; A general set of textual elements for reference.</li>
+        <li><a href="/?url=colours">Colours</a> &mdash; Colours and colour schemes from the brand guide.</li>
+        <li><a href="/?url=modules">Modules</a> &mdash; Basic blocks of content.</li>                
+        <li><a href="/?url=links">Links</a> &mdash; Links presented together as options.</li>
+        <li><a href="/?url=icons">Iconogrpahy</a> &mdash; A list of icons used in the site.</li>
+        <li><a href="/?url=graphs">Graphs</a></li>        
+    </ul>
+    <h3 class="">Components</h3>
+    <ul class="block-list">
+        <li><a href="/?url=navigation">Heading &amp; Navigation</a> &mdash; Top level navigation</li>
+        <li><a href="/?url=welcome">Welcome</a> &mdash; The first thing the user will see.</li>
+        <li><a href="/?url=login">Login</a> &mdash; Basic login form.</li>
+        <li><a href="/?url=alerts">Alerts</a> &mdash; Important error or alert messages</li>        
+        <li><a href="/?url=now">Now</a> &mdash; A component to show what's happening now</li>
+        <li><a href="/?url=status">Status Messages</a> &mdash; On/Off Open/Closed type things.</li>
+        <li><a href="/?url=bargraph">Bar Graph</a> &mdash; Time series usage data</li>
+        <li><a href="/?url=usagesofar">Usage So Far</a> &mdash;</li>
+    </ul>
+</div><!-- .module -->
+<script type="text/javascript">
+    // $(function()
+    // {
+    //     $('.block-list a').each(function()
+    //     {
+    //         var h = $(this).attr('href');
+    //         var t = $(this).text();
+    //         $(this).attr('href',h+t)
+    //     });
+    // });
+</script>
+<?php
+function showDirList()
+{
+    $dir = scandir('./inc');
+    $ignore = array('.','..','404.html','home.html','header.html','footer.html');
+    foreach($dir as $d)
+    {
+        if (!in_array($d, $ignore))
+        {
+            $name = substr($d, 0, -5);
+            echo '<li><a class="block-list__link" href="/?url='.$name.'">'.$name.'</a></li>';    
+        }            
+    }   
+}    
+?>        
