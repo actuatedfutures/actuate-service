@@ -29,7 +29,7 @@ else:
         </div>
         <div class="module__main extra">
             <p class="m--half">How does your home feel right now?</p>
-            <ul class="nav  options linkgroup">
+            <ul class="nav options">
                 <li><a class="warm" href="/warmth/toohot/">Too warm</a></li>
                 <li><a class="right" href="/warmth/justright/?temp=21">Just right</a></li>
                 <li><a class="cold" href="/warmth/toocold/">Too cold</a></li>
@@ -73,16 +73,16 @@ else:
             a.set({'temperature':b.now});
         }}); 
 
-        var TargetTemp = new Backbone.Model;
-        TargetTemp.urlRoot = '/api/control/targettemp/';
-        TargetTemp.fetch({success:function(a,b,c)
-        { 
-            a.set({'temperature':b.target});
-        }}); 
+        TargetTempView = TempView.extend({
+            render: function() {
+                var e = Math.floor(this.model.get("target"));
+                this.$el.html(e + "&deg;C")
+            }
+        });
 
-        InsideTempView = new TempView({model:InsideTemp, el:$('#temp-inside')});
-        OutsideTempView = new TempView({model:OutsideTemp, el:$('#temp-outside')});
-        TargetTempView = new TempView({model:TargetTemp, el:$('#temp-target')});
+        insidetempview = new TempView({model:InsideTemp, el:$('#temp-inside')});
+        outsidetempview = new TempView({model:OutsideTemp, el:$('#temp-outside')});
+        targettempview = new TargetTempView({model:actuate.controls.targettemp, el:$('#temp-target')});
 
         var WarmingStatus = new Backbone.Model;
         WarmingStatus.urlRoot = '/api/warmth/status';

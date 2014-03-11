@@ -7,39 +7,52 @@
     <a href="#" id="showBusStops" class="button">Show local bus stops<span class="icon icon-arrow-up"></span></a>
 </div>
 
-<div class="module coloured colours-mustard">
-    <h2 class="heading">Facebook/Twitter</h2>
-    <div class="media">
-       <img src="http://placekitten.com/50/50" alt="" class="media__img">
-       <p class="media__body"><b>bobbyfischer43</b><br />Old Kent Road is rammed this morning a lorry overturned on Coverhill Road and there's milk everywhere!!</p>
-    </div>
-    <div class="media">
-       <img src="http://placekitten.com/51/51" alt="" class="media__img">
-       <p class="media__body"><b>bspassky37</b><br />Gah! missed the train again. The 43 bus never gets you there on time </p>
-    </div>
+<div class="grid"><div class="grid__item pad-one-half">
+
+        <div class="module">
+            <header class="module__header -sea"><h3 class="heading">Buses</h3></header>
+            <div class="module__main">
+                <div class="busstop_data"></div>
+            </div><!-- .module_main -->
+            <footer class="module__footer"></footer>
+        </div>
+
+</div><!-- --><div class="grid__item pad-one-half">
+
+        <div class="module">
+            <header class="module__header -sea"><h3 class="heading">Trains</h3></header>    
+            <div class="module__main">
+                <div class="station_data"></div>
+            </div><!-- .module_main -->
+            <footer class="module__footer"></footer>
+        </div>
+
+</div></div>
+
+<div class="module">
+    <header class="module__header -blue"><h2 class="heading">Facebook/Twitter</h2></header>
+    <div class="module__main">
+        <div class="media">
+           <img src="http://placekitten.com/50/50" alt="" class="media__img">
+           <p class="media__body"><b>bobbyfischer43</b><br />Old Kent Road is rammed this morning a lorry overturned on Coverhill Road and there's milk everywhere!!</p>
+        </div>
+        <div class="media">
+           <img src="http://placekitten.com/51/51" alt="" class="media__img">
+           <p class="media__body"><b>bspassky37</b><br />Gah! missed the train again. The 43 bus never gets you there on time </p>
+        </div>
+    </div><!-- .module_main -->
+    <footer class="module__footer"></footer>
 </div>
 
-<div class="grid">
-    <div class="grid__item pad-one-half">
-        <div class="module coloured colours-sea">
-            <h3 class="heading">Buses</h3>    
-            <div class="busstop_data"></div>
-        </div>
-    </div><!--
- --><div class="grid__item pad-one-half">
-        <div class="module coloured colours-maroon">
-            <h3 class="heading">Trains</h3>    
-            <div class="station_data"></div>
-        </div>
-    </div>
-</div>
-
-<div class="module coloured colours-turq">
-    <h2 class="heading">Community</h2>
-    <p class="m--half">Take a look at our message boards to see how other Little Kelham residents are helping each other to live smarter</p>
-    <a href="/weather/" class="button">Lifts wanted / offered<span class="icon-arrow-right"></span></a>
-    <a href="/weather/" class="button">Parking wanted / offered<span class="icon-arrow-right"></span></a>
-    <a href="/weather/" class="button">Regular journeys<span class="icon-arrow-right"></span></a>
+<div class="module">
+    <header class="module__header -turq"><h2 class="heading">Community</h2></header>
+    <div class="module__main">
+        <p class="m--half">Take a look at our message boards to see how other Little Kelham residents are helping each other to live smarter</p>
+        <a href="/weather/" class="button">Lifts wanted / offered<span class="icon icon-arrow-right"></span></a>
+        <a href="/weather/" class="button">Parking wanted / offered<span class="icon icon-arrow-right"></span></a>
+        <a href="/weather/" class="button">Regular journeys<span class="icon icon-arrow-right"></span></a>
+    </div><!-- .module_main -->
+    <footer class="module__footer"></footer>
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>

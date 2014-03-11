@@ -8,9 +8,10 @@ else :
 
 <div class="grid"><div class="grid__item pad-one-half">
 
-    <div class="module usage__graph coloured colours-blue">
-        <h3 class="heading">This Month</h3>
-        <section class="module__full svgGraph">
+    <div class="module usage__graph">
+        <header class="module__header -mustard"><h3 class="heading">This Month</h3></header>
+        <div class="module__main">
+            <section class="module__full svgGraph">
             <div class="container m--half">
                 <svg class="chart" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMin meet"></svg>
             </div>
@@ -20,45 +21,15 @@ else :
                 <li class="graph--average"><span class="square"></span>Average: <span id="sum-ave">£24.54</span></li>
             </ul>
         </section><!-- .svgGraph -->
-        <p style="margin-top:12px">The graph shows what you've used so far this month (in yellow) with last months usage (in white) behind.</p>
+        </div><!-- .module_main -->
+        <footer class="module__footer"><p style="margin-top:12px">The graph shows what you've used so far this month (in yellow) with last months usage (in white) behind.</p></footer>
     </div>
-
-<?php /*
-    <div class="module -new usage__graph">
-        <header class="module__header colours-sea"><h3 class="heading">This Month</h3></header>
-        <section class="module__full svgGraph">
-            <div class="container m--half">
-                <svg class="chart" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMin meet"></svg>
-            </div>
-            <ul class="key brand-face">
-                <li class="graph--sofar"><span class="square"></span>This month: <span id="sum-this">£24.54</span></li>
-                <li class="graph--previous"><span class="square"></span>Last month: <span id="sum-last">£24.54</span></li>
-                <li class="graph--average"><span class="square"></span>Average: <span id="sum-ave">£24.54</span></li>
-            </ul>
-        </section><!-- .svgGraph -->
-        <footer class="module__footer">
-            <p>The graph shows what you've used so far this month (in yellow) with last months usage (in white) behind.</p>
-        </footer>
-    </div>
-*/ ?>
 
     <div class="module -new daily__graph coloured colours-maroon">
         <h3 class="heading">Today</h3>        
         <p>Today you've used <span class="today-usage em"> -- </span> of electricity and spent <span class="usage-price em">&pound;1.25</span>.</p>
         <a href="/electricity/day/today" class="button">More detail<span class="icon-arrow-right"></span></a>
     </div>
-
-<?php /*
-    <div class="module -new daily__graph">
-        <header class="module__header colours-maroon"><h3 class="heading">Today</h3></header>
-        <section class="module__main">
-            <p>Today you've used <span class="today-usage em">24 litres</span> of water and spent <span class="usage-price em">&pound;1.25</span>.</p>
-        </section>
-        <footer class="footer">
-            <a href="/water/day/today" class="button">More detail<span class="icon-arrow-right"></span></a>
-        </footer>
-    </div>
-*/ ?>
 
 </div><div class="grid__item pad-one-half">    
 

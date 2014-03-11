@@ -2,65 +2,60 @@
 
     <h3 class="page-title">Controls</h3> 
 
-    <div class="module coloured colours-maroon nonessential">
-        <!-- <h2 class="heading">Electricity<span class="icon-bulb icon--right"></span></h2> -->
-        <div class="status__box">
-            <dl class="split">
-                <dt class="split__title">Non-essential circuit</dt>
-                <dd class="status"><span class="hi">on</span></dd>
-            </dl>
-        </div><!-- .status__box -->
-        <a href="/control/electricity" class="button"><span class="ho">Turn off</span><span class="icon-power"></span></a>
-    </div><!-- .module --><!--
+    <ul class="cf -list">
+        <li>
+            <a class="menu_control__item" href="#nonessential"><span class="icon-bulb"></span>&nbsp;Master switch</a>
+        </li>
+        <li>
+            <a class="menu_control__item" href="#waterheating"><span class="icon-water"></span>&nbsp;Water Heating</a>
+        </li>
+        <li>
+            <a class="menu_control__item" href="#targettemp"><span class="icon-warmth"></span>&nbsp;Target Temperature</a>
+        </li>
+        <li>
+            <a class="menu_control__item" href="#housealarm"><span class="icon-eye"></span>&nbsp;House Alarm</a>
+        </li>            
+        <li id="back">
+            <a class="" href="#back"><span class="icon-arrow-left"></span>&nbsp;<span id="menu__back">Cancel</span></a>
+        </li>            
+    </ul>
 
-    --><div class="module coloured colours-sea waterheating">
-        <!-- <h2 class="heading">Water<span class="icon-water icon--right"></span></h2> -->
-        <div class="status__box">
-            <dl class="split">
-                <dt class="split__title">Water Heating</dt>
-                <dd class="status"><span class="hi">on</span></dd>
-            </dl>
-        </div><!-- .status__box -->
-        <a href="/control/water" class="button"><span class="ho">Turn off</span><span class="icon-power"></span></a>
-    </div><!-- .module --><!-- 
+    <div class="control control__electricity" id="nonessential">
+        <p class="status_message">The non-essential electricty curcuit is currently:</p> 
+        <p class="status">On</p>
+        <a href="#" class="button">Turn it <span class="action">OFF</span></a>
+    </div>
 
-    --><div class="module coloured colours-blue housealarm">
-        <!-- <h2 class="heading">Security<span class="icon-eye icon--right"></span></h2> -->
-        <div class="status__box">
-            <dl class="split">
-                <dt class="split__title">House Alarm</dt>
-                <dd class="status"><span class="hi">armed</span></dd>
-            </dl>
-        </div><!-- .status__box -->
-        <a href="/control/alarm" class="button"><span class="ho">Unable to disarm</span><span class="icon-close"></span></a>
-    </div><!-- .module --><!--
+    <div class="control control__water" id="waterheating">
+        <p class="status_message">The water heater is currently:</p> 
+        <p class="status">On</p>
+        <a href="#" class="button">Turn it <span class="action">OFF</span></a>
+    </div>
 
-    --><div class="module coloured colours-purple targettemp">
-        <!-- <h2 class="heading">Warmth<span class="icon-warmth icon--right"></span></h2> -->
-        <div class="status__box">
-            <dl class="split">
-                <dt class="split__title">Target temp.</dt>
-                <dd class="status"><span class="hi">21&deg;C</span></dd>
-            </dl>
-        </div><!-- .status__box -->
-        <a href="/control/target" class="button">Change target<span class="icon-arrow-right"></span></a>
-    </div><!-- .module --><!--
+    <div class="control control__temp" id="targettemp">
+        <p class="status_message">The target temperature is:</p> 
+        <p class="status">19&deg;C</p>
+        <a href="#up" class="button">Higher<span class="icon icon-arrow-up"></span></a>
+        <a href="#down" class="button">Lower<span class="icon icon-arrow-down"></span></a>
+    </div>
 
-     --><div class="module coloured colours-mustard heatingboost">
-        <!-- <h2 class="heading">Warmth<span class="icon-warmth icon--right"></span></h2> -->
-        <div class="status__box">
-            <dl class="split">
-                <dt class="split__title">Heating Boost</dt>
-                <dd class="status"><span class="hi">ON</span></dd>
-            </dl>
-        </div><!-- .status__box -->
-        <a href="/control/heating" class="button"><span class="ho">Turn OFF</span><span class="icon-arrow-right"></span></a>
-    </div><!-- .module -->
+    <div class="control control__alarm" id="housealarm">
+        <p class="status_message">The house alarm is:</p> 
+        <p class="status smaller">disarmed</p>
+        <a href="#" class="button"><span class="action">arm</span> it</a>
+    </div>
 </nav>
 
+<script type="text/javascript" src="/js/actuate/backbone.control.models.js"></script>
+<script type="text/javascript" src="/js/actuate/backbone.views.js"></script>
 <script type="text/javascript">
 $(function()
-{
+{    
+    var nonessential = new NonEssentialView({model: actuate.controls.nonessential, el:$("#nonessential")});
+    var waterheating = new WaterHeatingView({model: actuate.controls.waterheating, el:$("#waterheating")});
+    var targettemp = new TargetTempView({model: actuate.controls.targettemp, el:$("#targettemp")});
+    var housealarm = new HouseAlarmView({model: actuate.controls.housealarm, el:$("#housealarm")});
+
     var menuButton = $('#show-controls-btn span');
 
     // $('html').addClass('js-ready');
@@ -68,65 +63,32 @@ $(function()
     $('#show-controls-btn').on('click',function(e)
     {
         e.preventDefault();      
-
-        updateControls(function()
-        {        
-            $('html').toggleClass('show-right');
-            $(menuButton).toggleClass('icon-close');
-            $(menuButton).toggleClass('icon-menu');
-            $(this).blur();    
-        });
+        $('html').toggleClass('show-right');
+        $(menuButton).toggleClass('icon-close');
+        $(menuButton).toggleClass('icon-menu');
+        $(this).blur(); 
     });
 
-    var updateControls = function(callback)
+    $('#back').hide();
+
+    $('.menu_control__item').on("click",function(e)
     {
-        var api     = '/api/control/all';
-        
-        var non  = $('.nonessential .hi');
-        var wah  = $('.waterheating .hi');
-        var hal  = $('.housealarm .hi');
-        var tat  = $('.targettemp .hi');
-        var heb  = $('.heatingboost .hi');
+        e.preventDefault();
+        var target = $(this).attr('href');      // grab which one to open.
+        $('.menu_control__item').hide();        // hide the other menu items.
+        $('#back').show();                      // show the back button.
+        $(target).show().addClass('showing');   // show the correct control panel.
+        $('#menu__back').text('Cancel');
+    });
 
-        var bnon = $('.nonessential .button .ho');
-        var bwah = $('.waterheating .button .ho');
-        var bhal = $('.housealarm .button .ho');
-        // var bt   = $('.targettemp .button'); // we don't need to the the target temp
-        var bheb = $('.heatingboost .button .ho');       
+    $('.control').hide();
 
-        $.getJSON(api,function(data,status,x)
-        {                
-            non.text(data.nonessential.status); 
-            wah.text(data.waterheating.status); 
-            hal.text(convertAlarm(data.housealarm.status)); 
-            tat.html(data.targettemp.target+'&deg;'); 
-            heb.text(data.heatingboost.status); 
-
-            bnon.html(swapStatus(data.nonessential.status)); 
-            bwah.html(swapStatus(data.waterheating.status)); 
-            bhal.html(swapAlarm(data.housealarm.status)); 
-            bheb.html(swapStatus(data.heatingboost.status)); 
-            // btat.text(data.targettemp.target+'&deg;');  // we don't need to the the target temp
-            callback();
-        });
-
-        var convertAlarm = function(status)
-        {
-            if (status == 'on') return 'armed';
-            if (status == 'off') return 'disarmed';
-        }
-
-        var swapStatus = function(status)
-        {
-            if (status == 'on') return 'turn off';
-            if (status == 'off') return 'turn on';
-        }
-
-        var swapAlarm = function(status)
-        {
-            if (status == 'on') return 'unable to disarm';
-            if (status == 'off') return 'arm';
-        }
-    }
+    $('#back').on("click",function(e)
+    {
+        e.preventDefault();
+        $('.control.showing').hide().removeClass('showing');
+        $('.menu_control__item').show();        // show the menu items again.
+        $('#back').hide();                      // hide the back button.
+    });
 });
 </script>

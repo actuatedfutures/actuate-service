@@ -26,18 +26,18 @@
         $('.user-id').on('click',function(e)
         {
             e.preventDefault();                    
-            var res = confirm('Are you should you want to log out?');
-            if (res)
-            {
-                var login = $.post("/api/user/logout", null, function(data)
-                {
-                    if (data == 'success') window.location.href = '/';
-                    else { 
-                        // console.log(data);
-                        alert('problem!');
-                    }
-                });
-            }
+            // var res = confirm('Are you should you want to log out?');
+            // if (res)
+            // {
+            //     var login = $.post("/api/user/logout", null, function(data)
+            //     {
+            //         if (data == 'success') window.location.href = '/';
+            //         else { 
+            //             // console.log(data);
+            //             alert('problem!');
+            //         }
+            //     });
+            // }
         });
     });
 </script>

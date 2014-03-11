@@ -8,9 +8,11 @@ else :
 
 <div class="grid"><div class="grid__item pad-one-half">
 
-    <div class="module coloured colours-maroon usage__graph">
-        <h3 class="heading">This Month</h3>    
-        <p class="m--half">Take a look at what you've used so far this month.</p>
+    <div class="module usage__graph">
+        <header class="module__header -blue"><h3 class="heading">This Month</h3></header>
+        <div class="module__main">
+            <p class="m--half">Take a look at what you've used so far this month.</p>                    
+        </div><!-- .module_main -->        
         <div class="svgGraph">
             <div class="container m--half">
                 <svg class="chart" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMin meet"></svg>
@@ -21,27 +23,34 @@ else :
                 <li class="graph--average"><span class="square"></span>Average: <span id="sum-ave">£24.54</span></li>
             </ul>
         </div><!-- .svgGraph -->
-        <br />
-        <p>That means that this month you've used enough water to make approximately 1000 cups of tea!</p> 
+        <footer class="module__footer">
+            <p>That means that this month you've used enough water to make approximately 1000 cups of tea!</p> 
+        </footer>
     </div>
 
-    <div class="module coloured colours-purple daily__graph">
-        <h2 class="heading">Today</h2>    
-        <p>Today you've used <span class="today-usage em">litres</span> of water and spent <span class="usage-price em">&pound;1.25</span>.</p>
-        <a href="/water/day/today" class="button">More detail<span class="icon-arrow-right"></span></a>
+    <div class="module daily__graph">
+        <header class="module__header -sea"><h2 class="heading">Today</h2></header>    
+        <div class="module__main">
+            <p>Today you've used <span class="today-usage em">litres</span> of water and spent <span class="usage-price em">&pound;1.25</span>.</p>
+        </div><!-- .module_main -->
+        <footer class="module__footer">
+            <a href="/water/day/today" class="button">More detail<span class="icon icon-arrow-right"></span></a>
+        </footer>
     </div>
 
 </div><div class="grid__item pad-one-half">    
 
-    <div class="module coloured colours-sea daily__graph">
-        <h2 class="heading">Daily totals</h2>    
-        <h4 class="brand-face m--half">November</h4>    
-        <div class="svgGraph">
-            <div class="container">
-                <svg class="chart" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMin meet"></svg>
-            </div>
-        </div><!-- .svgGraph -->
-        <a href="/notfound/" class="button">Full month<span class="icon-arrow-right"></span></a>
+    <div class="module daily__graph">
+        <header class="module__header -sea"><h2 class="heading">Daily totals</h2></header>
+        <div class="module__main">
+            <h4 class="brand-face m--half">November</h4>    
+            <div class="svgGraph">
+                <div class="container">
+                    <svg class="chart" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMin meet"></svg>
+                </div>
+            </div><!-- .svgGraph -->
+        </div><!-- .module_main -->
+        <footer class="module__footer"><a href="/notfound/" class="button">Full month<span class="icon icon-arrow-right"></span></a></footer>
     </div>
 
 </div><!-- .grid__item --></div><!-- .grid -->

@@ -23,72 +23,69 @@
 <div class="grid grid--security">
 <div class="grid__item">
 
-    <div class="module coloured colours-mustard">
-        <h3 class="heading">Alarm<span class="icon icon-alarm icon--right"></span></h3>
-        <div class="status__box alarm">
-            <dl class="split">
-                <dt class="split__title">Alarm status</dt>
-                <dd class="status"><span class="hi"><?php echo $label; ?>ED</span></dd>
-            </dl>
-        </div><!-- .status__box -->
-        <a href="/control/alarm/" class="button"><?php echo $action; ?> the alarm<span class="icon-arrow-right"></span></a>
+    <div class="module">
+        <header class="module__header -turq">
+            <p class="icon icon-alarm"></p>
+            <h3 class="heading">Alarm</h3>
+        </header>
+        <div class="module__main">
+            <div class="status__box alarm">
+                <dl class="split">
+                    <dt class="split__title">Alarm status</dt>
+                    <dd class="status"><span class="hi"><?php echo $label; ?>ED</span></dd>
+                </dl>
+            </div><!-- .status__box -->
+        </div><!-- .module_main -->
+        <footer class="module__footer">
+            <a href="/control/alarm/" class="button"><?php echo $action; ?> the alarm<span class="icon icon-arrow-right"></span></a>
+        </footer>
     </div>
 
 </div><div class="grid__item">
 
-    <div class="module coloured colours-green">
-        <h3 class="heading">Occupancy<span class="icon icon-occupancy icon--right"></span></h3>
-        <div class="status__box occupancy">
-            <dl class="split">
-                <dt class="split__title"> Last movement </dt>
-                <dd class="status"><span class="hi">7:35am</span></dd>
-            </dl>
-        </div><!-- .status__box -->
+    <div class="module">
+        <header class="module__header -blue">
+            <p class="icon icon-occupancy"></p>
+            <h3 class="heading">Occupancy</h3>
+        </header>
+        <div class="module__main">
+            <div class="status__box occupancy">
+                <dl class="split">
+                    <dt class="split__title"> Last movement </dt>
+                    <dd class="status"><span class="hi">7:35am</span></dd>
+                </dl>
+            </div><!-- .status__box -->
+        </div><!-- .module_main -->
     </div>
 
 </div><div class="grid__item">
 
-    <div class="module coloured colours-sea">
-        <h2 class="heading">Front Door<span class="icon icon-door--closed icon--right"></span></h2>
-        <div class="status__box door--open">
-            <dl class="split">
-                <dt class="split__title"> This door is: </dt>
-                <dd class="status"><span class="hi">CLOSED</span></dd>
-            </dl>
-        </div><!-- .status__box -->
-    </div><!-- .module -->
-
-    <div class="module coloured colours-sea">
-        <h2 class="heading">Back Door<span class="icon icon-door--closed icon--right"></span></h2>
-        <div class="status__box door--open">
-            <dl class="split">
-                <dt class="split__title"> This door is: </dt>
-                <dd class="status"><span class="hi">OPEN</span></dd>
-            </dl>
-        </div><!-- .status__box -->
-    </div><!-- .module -->
-
-</div><div class="grid__item">
-
-    <div class="module coloured colours-sea windows">
-        <h2 class="heading">Windows Upstairs<span class="icon icon-door--open icon--right"></span></h2>
-        <div class="status__box">
-            <dl class="split">
-                <dt class="split__title">A window is:</dt>
-                <dd class="status"><span class="hi">OPEN</span></dd>
-            </dl>
-        </div><!-- .status__box -->
-    </div><!-- .module -->
-
-    <div class="module coloured colours-sea windows">
-        <h2 class="heading">Windows Downstairs<span class="icon icon-door--open icon--right"></span></h2>
-        <div class="status__box">
-            <dl class="split">
-                <dt class="split__title">A window is:</dt>
-                <dd class="status"><span class="hi">OPEN</span></dd>
-            </dl>
-        </div><!-- .status__box -->
-    </div><!-- .module -->    
+    <div class="module">
+        <header class="module__header -sea">
+            <p class="icon icon-door--closed"></p>
+            <h2 class="heading">Doors &amp; Windows</h2>
+        </header>
+        <div class="module__main">
+            <div class="status__box door--open">
+                <dl class="split">
+                    <dt class="split__title"> Front door</dt>
+                    <dd class="status"><span class="hi">CLOSED</span></dd>
+                </dl>
+                <dl class="split">
+                    <dt class="split__title"> Back door</dt>
+                    <dd class="status"><span class="hi">OPEN</span></dd>
+                </dl>
+                <dl class="split">
+                    <dt class="split__title">Upstairs windows</dt>
+                    <dd class="status"><span class="hi">OPEN</span></dd>
+                </dl>
+                <dl class="split">
+                    <dt class="split__title">Down stairs windows</dt>
+                    <dd class="status"><span class="hi">OPEN</span></dd>
+                </dl>
+            </div><!-- .status__box -->
+        </div><!-- .module_main -->
+    </div><!-- .module -->  
 
 </div><!-- .grid__item -->
 </div><!-- .grid -->
