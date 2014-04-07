@@ -10,7 +10,7 @@ else:
 <div class="grid__item">
     
     <div class="module">
-        <header class="module__header"><h2 class="heading -maroon">Temperature</h2></header>
+        <header class="module__header"><h2 class="heading -turq">Temperature</h2></header>
         <div class="module__main">
             <div class="separate -three">
                 <div class="pair">
@@ -41,11 +41,30 @@ else:
 </div><div class="grid__item">
 
     <div class="module">        
-        <header class="module__header -maroon"><h2 class="heading">Heating status</h2></header>
+        <header class="module__header -sea"><h2 class="heading">Heating status</h2></header>
         <div class="module__main">
             <p>You house is currently <span class="hi" id="boost"></span> which means that it will naturally maintain it's current heat without you needing to do anything.</p>
         </div><!-- .module_main -->
-        <footer class="module__footer"><a href="/help/warmth/status" class="button">Find out more<span class="icon-arrow-right"></span></a></footer>
+        <footer class="module__footer"><a href="/help/warmth/status" class="button">Find out more<span class="icon icon-arrow-right"></span></a></footer>
+    </div><!-- .module -->    
+
+</div><div class="grid__item">
+
+    <div class="module">        
+        <header class="module__header -blue"><h3 class="heading">Recent Temperatures</h3></header>        
+        <section class="module__full svgGraph">
+            <div class="container m--half">
+                <svg class="recent_temp chart" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMin meet"></svg>
+            </div>            
+        </section><!-- .svgGraph -->
+        <footer class="module__footer">
+            <div><ul class="key brand-face">
+                    <li class="inside_temp"><span class="square"></span>Inside Temperature</li>
+                    <li class="outside_temp"><span class="square"></span>Outside Temperature</li>
+                </ul>
+                <p>You passive house will maintain the heat very efficiently but natural changes in the weather and your activity within the house will cause slight changes in the temperatures you experience.</p>
+            </div>
+        </footer>
     </div><!-- .module -->    
 
 </div><!-- .grid__item -->
@@ -55,10 +74,27 @@ else:
     
 </div><!-- .module -->
 
+<script type="text/javascript" src="/js/actuate/svgGraph.js"></script>
+<script type="text/javascript" src="/js/actuate/price.js"></script>
+<script type="text/javascript" src="/js/actuate/error.js"></script>
+<script type="text/javascript" src="/js/actuate/TemperatureGraph.js"></script>
+<script type="text/javascript">
+    $(document).on("ready",function(e)
+    {
+        var RecentTemp = new Backbone.Model;
+        RecentTemp.urlRoot = '/api/warmth/recent';
+        RecentTemp.fetch({success:function(a,b,c)
+        { 
+            // no need ... the data is now in the model.
+        }}); 
+
+        var recenttempview = new RecentTempView({model:RecentTemp, el:$('.recent_temp')});        
+    });
+</script>
+
 <script type="text/javascript">
     $(document).on('ready',function()
     {                       
-
         var InsideTemp = new Backbone.Model;
         InsideTemp.urlRoot = '/api/warmth/temperature/inside';
         InsideTemp.fetch({success:function(a,b,c)

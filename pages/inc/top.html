@@ -25,11 +25,31 @@ else $live = 'false';
     <script type="text/javascript" src="//use.typekit.net/pou2qdm.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script src="/js/all.min.js"></script>    
+    <script type="text/javascript">
+    $(document).on("ready",function(e)
+    {
+        // console.log('doing it');        
+        // $(window).swipe({
+        //     swipeStatus:function(event, phase, direction, distance, duration, fingerCount) 
+        //     {
+        //         console.log(['status',event,phase,direction,duration,fingerCount]);        
+        //     }
+        //     ,swipe:function(event, direction, distance, duration, fingerCount) 
+        //     {
+        //         console.log(['swipe',event,direction,duration,fingerCount]);        
+        //     }
+        // });
+    });
+    </script>
 </head>
 <body class="colours-body">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
+
+<!-- <div id="swipetest" style="width:100%;height:100px;background:red;"> -->
+    
+</div>
 
 <div id="outer-wrap">
 <div id="inner-wrap">

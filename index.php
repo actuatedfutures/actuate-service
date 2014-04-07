@@ -20,19 +20,20 @@ $pagefile = 'pages/'.$params[0].'.php';
 // check a file exists for that page.
 if (file_exists($pagefile))
 {
-    include ('inc/top.html');
-    include('inc/header.html');
-    include('inc/menu_controls.html');
-    include('inc/menu_pages.html');
+    include ('pages/inc/top.html');
+
     if (!isset($_SESSION['user'])) // if the user isn't properly logged in.
     {
         include ('pages/login.php');
 
     } else {
         
+        include('pages/inc/header.html');
+        include('pages/inc/menu_controls.html');
+        include('pages/inc/menu_pages.html');
         include($pagefile);
     }
-    include('inc/bottom.html'); 
+    include('pages/inc/bottom.html'); 
 
 } else { // otherwise issue a good ol' 404 me hearties!
 

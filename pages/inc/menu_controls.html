@@ -60,13 +60,33 @@ $(function()
 
     // $('html').addClass('js-ready');
 
+    var menuStatus = 'closed';
+
     $('#show-controls-btn').on('click',function(e)
     {
-        e.preventDefault();      
-        $('html').toggleClass('show-right');
-        $(menuButton).toggleClass('icon-close');
-        $(menuButton).toggleClass('icon-menu');
-        $(this).blur(); 
+        e.preventDefault();   
+        console.log(menuStatus);        
+        if (menuStatus == 'closed')
+        {
+            menuStatus = 'open';
+            $('html').addClass('show-right');
+            $(menuButton).addClass('icon-close');
+            $(menuButton).removeClass('icon-menu');
+            $(window).swipe({
+                swipeRight:function(event, direction, distance, duration, fingerCount) 
+                {     
+                    $('#show-controls-btn').trigger('click');
+                }
+            });          
+        } else {
+            menuStatus = 'closed';
+            $('html').removeClass('show-right');
+            $(menuButton).removeClass('icon-close');
+            $(menuButton).addClass('icon-menu');
+            $(window).swipe("destroy");
+        }
+        $(this).blur();     
+        
     });
 
     $('#back').hide();

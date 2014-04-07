@@ -12,7 +12,7 @@ else :
         <header class="module__header -blue m--none"><h3 class="heading">This Month</h3></header>  
         <div class="svgGraph">
             <div class="container m--half">
-                <svg class="chart" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMin meet"></svg>
+                <svg class="monthy_usage chart" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMin meet"></svg>
             </div>            
         </div><!-- .svgGraph -->
         <div class="module__main">

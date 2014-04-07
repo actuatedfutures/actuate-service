@@ -10,9 +10,9 @@ else :
 
     <div class="module usage__graph">
         <header class="module__header -blue"><h3 class="heading">This Month</h3></header>
-        <section class="module__full svgGraph">
+        <section class="module__full -white svgGraph">
             <div class="container m--half">
-                <svg class="chart" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMin meet"></svg>
+                <svg class="monthy_usage chart" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMin meet"></svg>
             </div>            
         </section><!-- .svgGraph -->
         <div class="module__main">
@@ -54,11 +54,11 @@ else :
 
 </div><!-- .grid__item --></div><!-- .grid -->
 
-<script type="text/javascript" src="/js//actuate/svgGraph.js"></script>
-<script type="text/javascript" src="/js//actuate/price.js"></script>
-<script type="text/javascript" src="/js//actuate/error.js"></script>
-<script type="text/javascript" src="/js//actuate/monthUsageGraph.js"></script>
-<script type="text/javascript" src="/js//actuate/dayBarChart.js"></script>
+<script type="text/javascript" src="/js/actuate/svgGraph.js"></script>
+<script type="text/javascript" src="/js/actuate/price.js"></script>
+<script type="text/javascript" src="/js/actuate/error.js"></script>
+<script type="text/javascript" src="/js/actuate/monthUsageGraph.js"></script>
+<script type="text/javascript" src="/js/actuate/dayBarChart.js"></script>
 <script type="text/javascript">
     
     $(document).on('ready',function()
